@@ -27,7 +27,18 @@ def parse_line_as_float(line):
     return float(line.strip())
 
 
-# Helper function for reading & parsing of the input data file
+# will return a parse function to parse a list of inputs
+# See day-02.py for usage
+def split_line_parser(seperator, *args):
+    def parser(line):
+        parts = line.strip().split(seperator)
+        values = []
+        for i, part in enumerate(parts):
+            values.append(args[i](part))
+        return values
+    return parser
+
+
 #   testFilePath: relative path to the input data file(copied from aoc)
 #   lineParseFunc: the function used to parse on line of the input file
 #                  takes a line (string) as an input and returns any object
