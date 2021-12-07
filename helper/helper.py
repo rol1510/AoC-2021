@@ -1,4 +1,5 @@
 from copy import deepcopy
+import time
 
 
 def read_lines(path):
@@ -106,9 +107,16 @@ def runner(
     else:
         values = parse_lines(lines, lineParseFunc)
 
+    startTime = time.time()
     print("------ Solution Part 1 ------")
     solution1(deepcopy(values))
+    timePassed = time.time() - startTime
+    print(f"------- Took {round(timePassed * 1000, 2)}ms -------")
+    print()
 
     if solution2 != None:
+        startTime = time.time()
         print("------ Solution Part 2 ------")
         solution2(deepcopy(values))
+        timePassed = time.time() - startTime
+        print(f"------- Took {round(timePassed * 1000, 2)}ms -------")
