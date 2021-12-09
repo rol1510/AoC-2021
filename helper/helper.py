@@ -55,7 +55,10 @@ def remove_double_chars(line, char):
 # See day-02.py for usage
 def split_line_parser(seperator, *args):
     def parser(line):
-        parts = line.strip().split(seperator)
+        if seperator != "":
+            parts = line.strip().split(seperator)
+        else:
+            parts = [c for c in line.strip()]
         values = []
         for i, part in enumerate(parts):
             values.append(args[i % len(args)](part))
