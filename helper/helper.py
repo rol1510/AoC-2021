@@ -123,3 +123,11 @@ def runner(
         solution2(deepcopy(values))
         timePassed = time.time() - startTime
         print(f"------- Took {round(timePassed * 1000, 2)}ms -------")
+
+
+def print2dList(l):
+    s = "[\n"
+    for row in l:
+        s += "  " + str(row) + ",\n"
+    s += "]"
+    print(s)
